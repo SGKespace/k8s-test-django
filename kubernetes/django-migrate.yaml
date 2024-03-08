@@ -1,0 +1,19 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: django-migrate
+  labels:
+    app: django-migrate
+spec:
+  ttlSecondsAfterFinished: 90
+  template:
+    spec:
+      containers:
+        - name: django-migrate
+          image: sgkond/lesson-kuber-1
+          imagePullPolicy: IfNotPresent
+          command: ["python", "./manage.py", "migrate", "--no-input"]
+          envFrom:
+            - configMapRef:
+                name: django-app-config
+      restartPolicy: OnFailure
