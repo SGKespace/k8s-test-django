@@ -93,3 +93,23 @@ kubectl apply -f django-app-ingress.yaml
 ```
 star-burger.test
 ```
+## Важные замечания
+Для того, чтобы посмотреть что вы сделали удобно восппользоваться командой
+```sh
+minikube dashboard 
+```
+Но надо иметь ввиду, что изменения и перезапуски в командной строке не всегда "доходят" до деплоя - я рекомендую в вебинтерфейсе почаще пользоваться кнопкой рестарт. 
+<img width="1119" alt="image" src="https://github.com/SGKespace/k8s-test-django/assets/55636018/1ed6de48-3230-4ee4-bf85-fd35fa088621">
+<img width="871" alt="image" src="https://github.com/SGKespace/k8s-test-django/assets/55636018/98202f10-0737-4555-92c3-72f39300614c">
+
+Напоследок сделаем важные приемы работы с нашим сайтом на джанге
+
+Например миграции Django к базе данных:
+```sh
+kubectl apply -f kubernetes/django-migrate.yaml
+```
+
+Или запланируем задачу, удаления сессий Django:
+```sh
+kubectl apply -f kubernetes/django-clearsessions.yaml
+```
