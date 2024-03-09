@@ -35,12 +35,12 @@ $ docker-compose run web ./manage.py createsuperuser
 
 
 # Внимание:
-## Урок 1. Разверните сайт в Minikube выполнялся на МакОС, что принесло много нюансоов и опписание сделано только для этого случая.
+## Урок 1. Разверните сайт в Minikube выполнялся на МакОС, что принесло много нюансоов и описание сделано только для этого случая.
 
 # Запуск проекта в minikube (локально)
 [Kubectl](https://kubernetes.io/ru/docs/tasks/tools/install-kubectl/) и [minikube](https://minikube.sigs.k8s.io/docs/) должны быть установлены и настроены.
 
-В связи с тем, что VirtualBox (больше не поддерживается macOS) и Docker (не поддерживаает ingress в macOS) драйвер QEMU был выбран тут [minikube документация](https://minikube.sigs.k8s.io/docs/drivers/). Очень ваажно при установке выпполнить [пункт Networking](https://minikube.sigs.k8s.io/docs/drivers/qemu/)
+В связи с тем, что VirtualBox (больше не поддерживается macOS) и Docker (не поддерживаает ingress в macOS) драйвер QEMU был выбран тут [minikube документация](https://minikube.sigs.k8s.io/docs/drivers/). Очень ваажно при установке выполнить [пункт Networking](https://minikube.sigs.k8s.io/docs/drivers/qemu/)
 
 Запускаем minikube командой, важно указать драйвер qemu2 - уточню именно с "2" на конце
  
@@ -94,7 +94,7 @@ kubectl apply -f django-app-ingress.yaml
 star-burger.test
 ```
 ## Важные замечания
-Для того, чтобы посмотреть что вы сделали удобно восппользоваться командой
+Для того, чтобы посмотреть что вы сделали удобно воспользоваться командой
 ```sh
 minikube dashboard 
 ```
