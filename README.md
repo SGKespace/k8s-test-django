@@ -33,4 +33,63 @@ $ docker-compose run web ./manage.py createsuperuser
 
 `DATABASE_URL` -- адрес для подключения к базе данных PostgreSQL. Другие СУБД сайт не поддерживает. [Формат записи](https://github.com/jacobian/dj-database-url#url-schema).
 
-### Переменные окружения
+
+# Внимание:
+## Урок 1. Разверните сайт в Minikube выполнялся на МакОС, что принесло много нюансоов и опписание сделано только для этого случая.
+
+# Запуск проекта в minikube (локально)
+[Kubectl](https://kubernetes.io/ru/docs/tasks/tools/install-kubectl/) и [minikube](https://minikube.sigs.k8s.io/docs/) должны быть установлены и настроены.
+
+В связи с тем, что VirtualBox (больше не поддерживается macOS) и Docker (не поддерживаает ingress в macOS) драйвер QEMU был выбран тут [minikube документация](https://minikube.sigs.k8s.io/docs/drivers/). Очень ваажно при установке выпполнить [пункт Networking](https://minikube.sigs.k8s.io/docs/drivers/qemu/)
+
+Запускаем minikube командой, важно указать драйвер qemu2 - уточню именно с "2" на конце
+ 
+```sh
+minikube start --driver qemu2 --network builtin --network=socket_vmnet
+```
+
+Затем запускаем 
+```sh
+minikube addons enable ingress
+```
+Который может попросить запустить дополнительные сервисы, запускаем их тоже
+
+# Важно:
+## Для тех, кто пойдет моим путем я выкладываю в репозитории файлы с моми паролями и настройками, это не правильно, НО СЪЭКОНОМИТ ВАМ КУЧУ ВРЕМЕНИ!
+
+Итак если предыдущие шаги прошли без ошибок и у вас запущен Dockers-desktop смотрим IP вашего мака и прописываем его в docker-compose.yml который лежит в папке kubernetes. В моем случае там много IP шников, так как я работал с бука в разных местах - естественно выбирал текущий у себя. 
+
+```sh
+docker-compose up
+```
+Оставляем окно работающим. В другом окне запускаем
+```sh
+minikube  ip    
+```
+Командаа дает нужный IP который и прописываем в hosts, важно с правами администратора 
+
+```sh
+sudo nano /etc/hosts
+```
+
+строка например:
+```
+192.168.105.2   star-burger.test
+```
+
+Прописываем свои настройки в django-app-config.yml и заапускаем
+
+```sh
+kubectl apply -f django-app-config.yml
+```
+
+Образ джанги у меня лежит на https://hub.docker.com/ - вам надо создать свой для дальнейшей работы, затем запускаем
+
+```sh
+kubectl apply -f django-app-ingress.yaml
+```
+
+Чтобы посмотреть, что все прошло успешно пишем в браузере 
+```
+star-burger.test
+```
