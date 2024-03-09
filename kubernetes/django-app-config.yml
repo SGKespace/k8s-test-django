@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: django-app-config
+data:
+  ALLOWED_HOSTS: 127.0.0.1,localhost,158.160.150.190,10.96.128.1,10.96.135.216,192.168.0.102,http://star-burger.test,192.168.0.2,192.168.1.36,192.168.105.2,star-burger.test
+  # DEBUG        : 'True'
+  DEBUG        : 'False'
+  DATABASE_URL: postgres://test_k8s:OwOtBep9Frut@192.168.0.102:5432/test_k8s
+  SECRET_KEY: 'sQTBbQnQiVjU5LnhBLWJLT3wvQSIiL1ouISNZOndmcFI='
