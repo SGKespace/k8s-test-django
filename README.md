@@ -119,12 +119,13 @@ kubectl apply -f kubernetes/django-clearsessions.yaml
 Получите данные для 2 урока
 <img width="925" alt="image" src="https://github.com/SGKespace/k8s-test-django/assets/55636018/c5de9228-e59a-4300-b882-99704181b6cf">
 
-###  Запустите графическую оболочку Lens Desktop и посмотрите выделенные для вас парааметры базы данных
+###  Запустите графическую оболочку Lens Desktop и посмотрите выделенные для вас параметры базы данных
 <img width="1279" alt="image" src="https://github.com/SGKespace/k8s-test-django/assets/55636018/abdcd6ad-3b3e-4e43-b09f-e3bbe05c3235">
 нас интересуют эти секреты
 <img width="1205" alt="image" src="https://github.com/SGKespace/k8s-test-django/assets/55636018/bac37183-465c-4b13-995f-9b293276beb2">
 Создаем файл django-secret.yml дл DATABASE_URL используем шаблон POSTGRES_URL - postgres://<пользователь postgres>:<пароль пользователя>@<хост базы данных>:<порт бд>/<имя бд>
-```
+
+ ```
 apiVersion: v1
 kind: Secret
 metadata:
@@ -137,6 +138,7 @@ data:
   SECRET_KEY: QTBbQnQiVjU5LnhBLWJLT3wvQSIiL1ouISNZOndmcFI=
   DATABASE_URL: cG9zdGdyZXM6Ly9lZHUtam92aWFsLW5vcnRoY3V0dDp3YlFXSkQzdVZAbFEzQWJXQHJjMWItajAzYTIxOGtob3hqbHdkaS5tZGIueWFuZGV4Y2xvdWQubmV0OjY0MzIvZWR1LWpvdmlhbC1ub3J0aGN1dHQ/c3NsbW9kZT1yZXF1aXJl
 ```
+
 
 
 
