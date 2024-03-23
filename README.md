@@ -123,7 +123,7 @@ kubectl apply -f kubernetes/django-clearsessions.yaml
 <img width="1279" alt="image" src="https://github.com/SGKespace/k8s-test-django/assets/55636018/abdcd6ad-3b3e-4e43-b09f-e3bbe05c3235">
 нас интересуют эти секреты
 <img width="1205" alt="image" src="https://github.com/SGKespace/k8s-test-django/assets/55636018/bac37183-465c-4b13-995f-9b293276beb2">
-Создаем файл django-secret.yml дл DATABASE_URL используем шаблон POSTGRES_URL - postgres://<пользователь postgres>:<пароль пользователя>@<хост базы данных>:<порт бд>/<имя бд> Обратите внимание данные ппишутся в формате  Opaque
+Создаем файл django-secret.yml для DATABASE_URL используем шаблон POSTGRES_URL - postgres://<пользователь postgres>:<пароль пользователя>@<хост базы данных>:<порт бд>/<имя бд> Обратите внимание данные пишутся в формате  Opaque
 
  ```
 apiVersion: v1
