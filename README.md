@@ -123,7 +123,7 @@ kubectl apply -f kubernetes/django-clearsessions.yaml
 <img width="1279" alt="image" src="https://github.com/SGKespace/k8s-test-django/assets/55636018/abdcd6ad-3b3e-4e43-b09f-e3bbe05c3235">
 нас интересуют эти секреты
 <img width="1205" alt="image" src="https://github.com/SGKespace/k8s-test-django/assets/55636018/bac37183-465c-4b13-995f-9b293276beb2">
-Создаем файл django-secret.yml дл DATABASE_URL используем шаблон POSTGRES_URL - postgres://<пользователь postgres>:<пароль пользователя>@<хост базы данных>:<порт бд>/<имя бд>
+Создаем файл django-secret.yml дл DATABASE_URL используем шаблон POSTGRES_URL - postgres://<пользователь postgres>:<пароль пользователя>@<хост базы данных>:<порт бд>/<имя бд> Обратите внимание данные ппишутся в формате  Opaque
 
  ```
 apiVersion: v1
@@ -139,6 +139,21 @@ data:
   DATABASE_URL: cG9zdGdyZXM6Ly9lZHUtam92aWFsLW5vcnRoY3V0dDp3YlFXSkQzdVZAbFEzQWJXQHJjMWItajAzYTIxOGtob3hqbHdkaS5tZGIueWFuZGV4Y2xvdWQubmV0OjY0MzIvZWR1LWpvdmlhbC1ub3J0aGN1dHQ/c3NsbW9kZT1yZXF1aXJl
 ```
 
+Внесите исправления в манифесты в соответсвии с выданным вам зааданием и  заапустите их подставив свои значения пода и ппространства имен
 
+```shell
+kubectl apply --filename django-app-config.yml --namespace=edu-jovial-northcutt
+kubectl apply --filename django-secret.yml --namespace=edu-jovial-northcutt
+kubectl apply --filename django-app-deployment.yml  --namespace=edu-jovial-northcutt
+```
 
+Зайдите внутрь контейнераа, сделайте там миграции и после этого создайте суперпользователя
+
+```shell
+kubectl exec  -ti django-app-deployment-6498754757-d8vng  --namespace=edu-jovial-northcutt sh
+```
+
+### Перейдите по ссылке которую вам выдали для просморта результата и авторизуйтесь под суперпользователем
+
+<img width="618" alt="image" src="https://github.com/SGKespace/k8s-test-django/assets/55636018/e5597f23-b646-4f61-9a5a-cb95f4e60ae8">
 
