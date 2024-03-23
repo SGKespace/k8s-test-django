@@ -139,7 +139,7 @@ data:
   DATABASE_URL: cG9zdGdyZXM6Ly9lZHUtam92aWFsLW5vcnRoY3V0dDp3YlFXSkQzdVZAbFEzQWJXQHJjMWItajAzYTIxOGtob3hqbHdkaS5tZGIueWFuZGV4Y2xvdWQubmV0OjY0MzIvZWR1LWpvdmlhbC1ub3J0aGN1dHQ/c3NsbW9kZT1yZXF1aXJl
 ```
 
-Внесите исправления в манифесты в соответсвии с выданным вам зааданием и  заапустите их подставив свои значения пода и ппространства имен
+Внесите исправления в манифесты в соответсвии с выданным вам заданием и  запустите их подставив свои значения пода и ппространства имен
 
 ```shell
 kubectl apply --filename django-app-config.yml --namespace=edu-jovial-northcutt
@@ -147,7 +147,7 @@ kubectl apply --filename django-secret.yml --namespace=edu-jovial-northcutt
 kubectl apply --filename django-app-deployment.yml  --namespace=edu-jovial-northcutt
 ```
 
-Зайдите внутрь контейнераа, сделайте там миграции и после этого создайте суперпользователя
+Зайдите внутрь контейнераа, сделайте там миграции и после этого создайте суперпользователя (исправьте на свой под и  пространство имен)
 
 ```shell
 kubectl exec  -ti django-app-deployment-6498754757-d8vng  --namespace=edu-jovial-northcutt sh
