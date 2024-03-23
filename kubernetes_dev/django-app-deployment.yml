@@ -2,6 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: django-app-deployment
+  namespace: edu-jovial-northcutt
   labels:
     app: django-app
 spec:
@@ -20,6 +21,8 @@ spec:
         ports:
         - containerPort: 80
         envFrom:
+          - secretRef:
+              name: django-secret
           - configMapRef:
               name: django-app-config
 

@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: django-app-service # Имя Service.
+  labels:
+    app.kubernetes.io/name:  django-app-deployment
+spec:
+  selector:
+    # Этот Service перенаправит трафик на Pods с этим лейблом.
+    app:   django-app
+  ports:
+    - protocol: TCP
+      port: 80 # Трафик с 80-го порта Service перенаправится на 80-й порт Pod'а.
+      targetPort: 80
+      nodePort: 30411
+  type: NodePort
