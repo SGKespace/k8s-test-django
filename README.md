@@ -119,7 +119,11 @@ kubectl apply -f kubernetes/django-clearsessions.yaml
 Получите данные для 2 урока
 <img width="925" alt="image" src="https://github.com/SGKespace/k8s-test-django/assets/55636018/c5de9228-e59a-4300-b882-99704181b6cf">
 
-###  Запустите графическую оболочку Lens Desktop и посмотрите выделенные для вас параметры базы данных
+###  Запустите графическую оболочку Lens Desktop и посмотрите выделенные для вас параметры базы данных (на момент написания урока k9s на Маке установить было невозможно из-за того что Java не пподдерживает версию 14.4)
+![image](https://github.com/SGKespace/k8s-test-django/assets/55636018/3aae28b1-c11d-441c-a92d-b2bd88800750)
+
+Скины из Lens
+
 <img width="1279" alt="image" src="https://github.com/SGKespace/k8s-test-django/assets/55636018/abdcd6ad-3b3e-4e43-b09f-e3bbe05c3235">
 нас интересуют эти секреты
 <img width="1205" alt="image" src="https://github.com/SGKespace/k8s-test-django/assets/55636018/bac37183-465c-4b13-995f-9b293276beb2">
