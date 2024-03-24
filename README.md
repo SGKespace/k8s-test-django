@@ -157,3 +157,5 @@ kubectl exec  -ti django-app-deployment-6498754757-d8vng  --namespace=edu-jovial
 
 <img width="618" alt="image" src="https://github.com/SGKespace/k8s-test-django/assets/55636018/e5597f23-b646-4f61-9a5a-cb95f4e60ae8">
 
+[Ссылка на выделенный мне ресурс](https://sirius-env-registry.website.yandexcloud.net/edu-jovial-northcutt.html)
+[Ссылка на сайт](https://edu-jovial-northcutt.sirius-k8s.dvmn.org/admin/)
